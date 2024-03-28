@@ -57,7 +57,6 @@ const Login = () => {
             theme: "light",
           });
         } else{
-          console.log('good')
           toast.error(result.data, {
             position: "top-right",
             autoClose: 2000,
