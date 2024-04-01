@@ -110,11 +110,11 @@ const Login = () => {
         theme="light"
       />
       <div className="flex items-center justify-center bg-gray-100 h-screen w-[100%]">
-        <section className=" flex max-md:flex-col justify-around items-center  py-[50px] px-[40px] w-[70%] max-sm:w-full bg-white rounded-xl shadow-2xl shadow-gray-500 ">
-          <div className="loginImg">
+        <section className=" flex max-md:flex-col justify-around items-center  py-[50px] px-[40px] w-[40%] max-sm:w-full bg-white rounded-xl shadow-2xl shadow-gray-500 ">
+          {/* <div className="loginImg">
             <img src="/assets/logo_mark.png" alt="" />
-          </div>
-          <div className="w-[40%] max-sm:w-full">
+          </div> */}
+          <div className="w-[90%] max-sm:w-full">
             <center>
               <div className="text-[#A52922] text-[2rem] max-sm:text-[1.5rem] font-[700]">WELCOME :)</div>
 

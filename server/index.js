@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const EmployeeModel = require("./models/Employee")
+const ProductModel = require("./models/Product")
 
 const app = express()
 
@@ -33,6 +34,34 @@ app.post('/register', (req, res) => {
     EmployeeModel.create(req.body)
         .then(employee => res.json(employee))
         .catch(err => res.json(err))
+})
+
+app.get('/allProduct', async (req, res) => {
+    try {
+        const products = await ProductModel.find({});
+        res.json(products);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+
+})
+app.post('/addProduct', (req, res) => {
+    ProductModel.create(req.body)
+    .then(product => res.json(product))
+    .catch(err => res.json(err))
+})
+
+app.delete('/deleteProduct/:id', async (req, res) => {
+    try{
+        const productId = req.params.id;
+        const deleteProduct = await ProductModel.findByIdAndDelete(productId)
+        if(!deleteProduct) {
+            return res.status(404).json({error : 'Product not found'})
+        }
+        res.json(deleteProduct)
+    }catch (err) {
+        res.status(500).json({ error: err.message})
+    }
 })
 
 

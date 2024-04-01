@@ -39,11 +39,11 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center bg-gray-100 h-screen w-[100%]">
-      <section className=" flex max-md:flex-col justify-around items-center  py-[50px] px-[40px] w-[80%] max-sm:w-full bg-white rounded-xl shadow-lg shadow-black">
-        <div className="registerImg">
+      <section className=" flex max-md:flex-col justify-around items-center  py-[50px] px-[40px] w-[40%] max-sm:w-full bg-white rounded-xl shadow-lg shadow-black">
+        {/* <div className="registerImg">
           <img src="/assets/logo_mark.png" alt="" />
-        </div>
-        <div className="w-[50%] max-sm:w-full">
+        </div> */}
+        <div className="w-[90%] max-sm:w-full">
           <center>
             <div className="text-[3.5rem] font-[700]">Sign Up</div>
 
