@@ -1,12 +1,15 @@
 
 import { MenuItem, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdOutlineFileUpload } from 'react-icons/md'
 import PortalLayout from '../components/PortalLayout';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const ProductsForm = () => {
+const EditProducts = () => {
+
+  const params = useLocation()
+  const productId = params?.state?.ID
 
   const [productData, setProductData] = useState({
     name: '',
@@ -18,8 +21,24 @@ const ProductsForm = () => {
   })
 
   const navigate = useNavigate()
+  
+  // console.log(productData)
+  const [dataById, setDataById] = useState()
+  console.log(dataById, 'data')
+  useEffect(() => {
+    axios.post(`http://localhost:3005/getProduct/${productId}`)
+      .then(res => {
+        console.log(res.data)
+        setDataById(res.data)
+      })
+      .catch(err => console.log(err))
+  }, [productId])
 
-  console.log(productData)
+  useEffect(() => {
+    if(dataById) {
+      setProductData({name: dataById?.name, code: dataById?.code, brand: dataById?.brand, price: dataById?.price, product_unit: dataById?.product_unit, in_stock: dataById?.in_stock })
+    }
+  }, [dataById])
 
   const handleChange = (e) => {
     setProductData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -28,9 +47,9 @@ const ProductsForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3005/addProduct', productData)
+    axios.post(`http://localhost:3005/updateProduct/${productId}` , productData)
       .then(res => {
-        console.log(res)
+        console.log('Updated Product:', res.data)
         navigate('/products')
       })
       .catch(err => console.log(err))
@@ -55,9 +74,8 @@ const ProductsForm = () => {
     inputFile.onchange = handleFileChange;
     inputFile.click();
   };
-
   return (
-    <PortalLayout title={"Products / Add New"} >
+    <PortalLayout title={"Products / Edit"} >
       <>
         <h1 className="text-left text-gray-800 font-[500] text-[1.3rem] uppercase mt-[5%]">
           Add New Product
@@ -98,6 +116,8 @@ const ProductsForm = () => {
                     id="outlined-textarea"
                     label="Name"
                     name='name'
+                    value={productData?.name}
+                    InputLabelProps={{ shrink: true }}
                     size="small"
                     fullWidth
                     sx={{
@@ -119,6 +139,8 @@ const ProductsForm = () => {
                     id="outlined-textarea"
                     label="Code"
                     name='code'
+                    value={productData?.code}
+                    InputLabelProps={{ shrink: true }}
                     size="small"
                     fullWidth
                     sx={{
@@ -143,6 +165,8 @@ const ProductsForm = () => {
                     id="outlined-textarea"
                     label="Brand"
                     name='brand'
+                    value={productData?.brand}
+                    InputLabelProps={{ shrink: true }}
                     size="small"
                     fullWidth
                     sx={{
@@ -164,6 +188,8 @@ const ProductsForm = () => {
                     id="outlined-textarea"
                     label="Price"
                     name='price'
+                    value={productData?.price}
+                    InputLabelProps={{ shrink: true }}
                     size="small"
                     fullWidth
                     sx={{
@@ -188,6 +214,8 @@ const ProductsForm = () => {
                     id="outlined-textarea"
                     label="Product Unit "
                     name='product_unit'
+                    value={productData?.product_unit}
+                    InputLabelProps={{ shrink: true }}
                     size="small"
                     fullWidth
                     sx={{
@@ -209,6 +237,8 @@ const ProductsForm = () => {
                     id="outlined-textarea"
                     label="In Stock"
                     name='in_stock'
+                    value={productData?.in_stock}
+                    InputLabelProps={{ shrink: true }}
                     size="small"
                     fullWidth
                     sx={{
@@ -309,4 +339,4 @@ const ProductsForm = () => {
   )
 }
 
-export default ProductsForm
+export default EditProducts

@@ -144,11 +144,11 @@ export default function PortalLayout({ children, title }) {
             aria-label="open drawer"
             onClick={handleDrawer}
             edge="start"
-            sx={{ marginRight: 22 }}
+            sx={{ marginRight: 2 }}
           >
             <MenuIcon />
           </IconButton>
-          <p className="text-black text-[1.5rem] w-full pl-10 text-center uppercase !font-[600] ">{title}</p>
+          <p className="text-black text-[1.5rem] w-full uppercase !font-[600] ">{title}</p>
           <Popover className="ml-auto">
             <Popover.Button
               onClick={toggleMenu}
@@ -217,7 +217,7 @@ export default function PortalLayout({ children, title }) {
         color="#04375F"
         PaperProps={{
           sx: {
-            backgroundColor: "#04375F",
+            backgroundColor: "#0A79F6",
           },
         }}
         open={open}
@@ -231,7 +231,7 @@ export default function PortalLayout({ children, title }) {
               onClick={() => route("/dashboard")}
               className={`  ${
                 location.pathname === "/dashboard" 
-                  ? "!bg-[#375d7a] !border-l-2 !border-l-white "
+                  ? "!bg-[#004793] !border-l-2 !border-l-white "
                   : " text-white"
               }`}
               sx={{
@@ -297,10 +297,10 @@ export default function PortalLayout({ children, title }) {
             <ListItemButton
               onClick={() => route("/products")}
               className={`  ${
-                location.pathname === "/books" ||
+                location.pathname === "/products" ||
                 location.pathname === "/books/add" ||
                 location.pathname === "/books/edit" 
-                  ? "!bg-[#375d7a]"
+                  ? "!bg-[#004084]"
                   : " text-white"
               }`}
               sx={{

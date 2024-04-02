@@ -137,7 +137,8 @@ const Products = () => {
   };
 
   const handleEdit = (id) => {
-    // navigate("/books/edit", { state: { ID: id } });
+    console.log(id, 'inProduct')
+    navigate("/product/edit", { state: { ID: id } });
   };
 
   const Status = (id, status) => {
@@ -182,7 +183,7 @@ const Products = () => {
             <div>
               <p className="text-[2rem] font-[500] mt-5">No Books Found</p>
               <div className="mt-5">
-                <Link to={'/new/product'}>
+                <Link to={'/product/add'}>
                   {" "}
                   <button className="bg-[#04375F] text-white hover:text-black hover:font-[600] text-[0.9rem] hover:bg-white border-[#04375F] border-2  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] font-[400] max-md:font-[400] rounded-full mr-auto ">
                     Add New Product
@@ -194,7 +195,7 @@ const Products = () => {
             <>
               <div className="my-11">
                 <div className="flex justify-center w-full m-auto  ">
-                  <Link to={'/new/product'}>
+                  <Link to={'/product/add'}>
                     {" "}
                     <button className="bg-[#04375F] text-white hover:text-black hover:font-[600] text-[0.9rem] hover:bg-white border-[#04375F] border-2  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] font-[400] max-md:font-[400] rounded-full mr-auto ">
                       Add New Product
@@ -286,7 +287,7 @@ const Products = () => {
                           <td className="py-[1.5%] w-[10%] pr-6 lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
                             <div className="flex item-center justify-center md:gap-3 max-sm:gap-1">
                               <div
-                                onClick={() => handleEdit(value.id)}
+                                onClick={() => handleEdit(value._id)}
                                 className="transform hover:text-blue-500 md:bg-blue-600 rounded-full cursor-pointer md:p-2 hover:scale-110"
                               >
                                 <GrEdit className="!text-white max-sm:!text-blue-600 max-sm:text-[0.7rem]" />

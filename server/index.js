@@ -51,6 +51,33 @@ app.post('/addProduct', (req, res) => {
     .catch(err => res.json(err))
 })
 
+app.post('/updateProduct/:id', async (req, res) => {
+    console.log(req.params )
+    try{
+        const id = req.params.id
+        console.log(id, 'edit id in server')
+        const updateData = req.body
+        const updatedProduct = await ProductModel.findByIdAndUpdate(id, updateData, { new: true })
+        res.status(200).json({ message: 'Product Updated Successfully', data: updatedProduct})
+    }catch(err){
+        res.status(500).json({ error : err.message})
+    }
+})
+
+app.post('/getProduct/:id', async (req, res) => {
+    console.log(req.params)
+    try{
+        const id = req.params.id
+        const productById = await ProductModel.findById(id)
+        if(!productById){
+            res.status(404).json({ error: 'product not found'});
+        }
+        res.json(productById)
+    }catch(err){
+        res.status(500).json({ error : err.message})
+    }
+})
+
 app.delete('/deleteProduct/:id', async (req, res) => {
     try{
         const productId = req.params.id;

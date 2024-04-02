@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import ProductsForm from "./forms/ProductsForm";
+import EditProducts from "./editForms/EditProducts";
 
 function App() {
 
@@ -19,7 +20,10 @@ function App() {
 
 
 
-        <Route path="/new/product" element={<ProductsForm />}></Route>
+        <Route path="/product/add" element={<ProductsForm />}></Route>
+
+
+        <Route path="/product/edit" element={<EditProducts />}></Route>
       </Routes>
     </BrowserRouter>
   )
