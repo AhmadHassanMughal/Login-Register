@@ -138,7 +138,7 @@ export default function PortalLayout({ children, title }) {
   return (
     <Box sx={{ display: "flex", fontFamily: 'Montserrat' }}>
       <CssBaseline />
-      <AppBar className={`!bg-gradient-to-r from-teal-400 to-green-500 !text-white !border-0 ${open ? '!z-0' : ''} !shadow-none ${open? '!w-[84.8%]' : '!w-full'} `} open={open}>
+      <AppBar className={`!bg-teal-500  !text-white !border-0 ${open ? '!z-0' : ''} !shadow-none ${open? '!w-[84.8%]' : '!w-full'} `} open={open}>
         <Toolbar>
           <IconButton
             aria-label="open drawer"

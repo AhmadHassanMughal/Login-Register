@@ -122,7 +122,7 @@ const Products = () => {
 
   const deleteBook = async (id) => {
     console.log(id)
-    try{
+    try {
       const response = await axios.delete(`http://localhost:3005/deleteProduct/${id}`)
       console.log(response.data);
       setOpen(!open);
@@ -185,7 +185,7 @@ const Products = () => {
               <div className="mt-5">
                 <Link to={'/product/add'}>
                   {" "}
-                  <button className="bg-[#04375F] text-white hover:text-black hover:font-[600] text-[0.9rem] hover:bg-white border-[#04375F] border-2  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] font-[400] max-md:font-[400] rounded-full mr-auto ">
+                  <button className="bg-teal-500 text-white hover:bg-opacity-80 text-[0.9rem] border-green-500 border-2  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] !font-[600] max-md:font-[400] rounded-full mr-auto ">
                     Add New Product
                   </button>
                 </Link>
@@ -194,30 +194,31 @@ const Products = () => {
           ) : (
             <>
               <div className="my-11">
-                <div className="flex justify-center w-full m-auto  ">
-                  <Link to={'/product/add'}>
-                    {" "}
-                    <button className="bg-[#04375F] text-white hover:text-black hover:font-[600] text-[0.9rem] hover:bg-white border-[#04375F] border-2  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] font-[400] max-md:font-[400] rounded-full mr-auto ">
-                      Add New Product
-                    </button>
-                  </Link>
-                  <div className="border-2 flex bg-[#04375F] border-gray-600pl-[1rem] rounded-[8px]  w-[27.8125rem] ml-auto max-md:py-[1px] max-md:w-[15rem] max-md:text-[0.7rem] focus:outline-none focus:ring-0 focus:border-gray-900 peer">
-                    <IoIosSearch className="text-[2rem] my-auto ml-2 text-white" />
-                    <input
-                      onChange={(e) => setSearch(e.target.value)}
-                      type="search"
-                      name=""
-                      id=""
-                      placeholder="Search..."
-                      className="ml-2 pl-5 w-full bg-white outline-none"
-                    />
+                <div className="flex flex-col bg-white py-5 mt-5 rounded-xl  shadow-xl  w-full">
+                  <div className="flex justify-between w-full pb-6 px-5 border-b-2 m-autos">
+                    <div className="border-2 flex bg-teal-500 border-gray-600pl-[1rem] rounded-[8px]  w-[27.8125rem]  max-md:py-[1px] max-md:w-[15rem] max-md:text-[0.7rem] focus:outline-none focus:ring-0 focus:border-gray-900 peer">
+                      <IoIosSearch className="text-[2rem] my-auto ml-2 text-white" />
+                      <input
+                        onChange={(e) => setSearch(e.target.value)}
+                        type="search"
+                        name=""
+                        id=""
+                        placeholder="Search..."
+                        className="ml-2 pl-5 w-full bg-white outline-none"
+                      />
+                    </div>
+                    <Link to={'/product/add'}>
+                      {" "}
+                      <button className="bg-teal-500 text-white hover:bg-opacity-80 text-[0.9rem] border-green-500 border-2  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] !font-[600] max-md:font-[400] rounded-full mr-auto ">
+                        Add New Product
+                      </button>
+                    </Link>
                   </div>
-                </div>
-                <div className="flex flex-col items-center bg-white py-10 mt-5 rounded-xl  shadow-xl  w-full">
-                  <table className="w-full max-md:h-[400px] ">
+                  <h5 className="!ml-5 mt-5 text-[.9rem] " >(10) Records Found</h5>
+                  <table className="w-full mt-4 max-md:h-[400px] ">
                     <thead>
-                      <tr className="bg-[#04375F] text-white uppercase text-sm leading-normal w-[100%]">
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                      <tr className="!bg-gray-200 text-black  uppercase text-sm leading-normal w-[100%]">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem]  text-center">
                           ID
                         </th>
                         <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
