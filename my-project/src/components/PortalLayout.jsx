@@ -138,32 +138,33 @@ export default function PortalLayout({ children, title }) {
   return (
     <Box sx={{ display: "flex", fontFamily: 'Montserrat' }}>
       <CssBaseline />
-      <AppBar className={`!bg-white !border-0 !shadow-none !w-[100%] `} open={open}>
+      <AppBar className={`!bg-gradient-to-r from-teal-400 to-green-500 !text-white !border-0 ${open ? '!z-0' : ''} !shadow-none ${open? '!w-[84.8%]' : '!w-full'} `} open={open}>
         <Toolbar>
           <IconButton
             aria-label="open drawer"
             onClick={handleDrawer}
             edge="start"
-            sx={{ marginRight: 2 }}
+            sx={{  color: 'white' }}
+            className={` ${open ? '!mx-[1rem]' : '!mr-[1rem]'}`}
           >
             <MenuIcon />
           </IconButton>
-          <p className="text-black text-[1.5rem] w-full uppercase !font-[600] ">{title}</p>
+          <p className=" text-[.9rem] w-full uppercase !font-[700] ">{title}</p>
           <Popover className="ml-auto">
             <Popover.Button
               onClick={toggleMenu}
-              className="flex gap-2 outline-none md:mr-6 cursor-pointer text-gray-700"
+              className={`flex gap-2 outline-none md:mr-2 cursor-pointer`}
             >
-              <CiUser className="h-10  w-10 border-2 rounded-full  border-gray-600 p-2 mt-[6px]" />
+              <CiUser className="h-10  w-10 border-2 rounded-full p-2 mt-[6px]" />
               <div>
-                <p className="text-left text-gray-700">Abubakar</p>
-                <p className="text-left text-gray-700">Abubakkar@gmail.com</p>
+                <p className="text-left">Abubakar</p>
+                <p className="text-left">Abubakkar@gmail.com</p>
               </div>
 
               {isOpen ? (
-                <IoIosArrowDropup className="mt-[14px] cursor-pointer text-[1.5rem] text-gray-600" />
+                <IoIosArrowDropup className="mt-[14px] cursor-pointer text-[1.5rem] " />
               ) : (
-                <IoIosArrowDropdown className="mt-[14px] cursor-pointer text-[1.5rem] text-gray-600" />
+                <IoIosArrowDropdown className="mt-[14px] cursor-pointer text-[1.5rem] " />
               )}
             </Popover.Button>
             <Transition
@@ -177,10 +178,10 @@ export default function PortalLayout({ children, title }) {
             >
               <Popover.Panel className="absolute max-sm:right-0 text-center z-50 mt-2 py-5 bg-gray-50 border-2 border-gray-300 shadow-lg rounded-md max-w-xs max-sm:w-[230px] w-[270px]">
                 <div>
-                  {/* <div className='flex items-center'>
-                  <img src="/assets/profile_thumb.png" alt="" className='w-20 max-sm:w-15 rounded-full h-auto m-auto' />
-                  <span className='ml-[1rem] absolute right-[30%] top-[32%] bg-white cursor-pointer rounded-full p-1'><BiSolidEditAlt className='text-[1.5rem] z-[999]' /></span>
-                </div> */}
+                  <div className='flex items-center'>
+                  <img src="/assets/logo.png" alt="" className='w-20 max-sm:w-15 rounded-full h-auto m-auto' />
+                  {/* <span className='ml-[1rem] absolute right-[30%] top-[32%] bg-white cursor-pointer rounded-full p-1'><BiSolidEditAlt className='text-[1.5rem] z-[999]' /></span> */}
+                </div>
                   <>
                     <h1 className="font-[600] text-black text-[1.5rem] mb-2 text-center">
                       Abubkara
@@ -214,25 +215,28 @@ export default function PortalLayout({ children, title }) {
       </AppBar>
       <Drawer
         variant="permanent"
-        color="#04375F"
         PaperProps={{
           sx: {
-            backgroundColor: "#0A79F6",
+            backgroundColor: "#fff",
+            zIndex: '8000'
           },
         }}
+        className="!z-50"
         open={open}
       >
         {!open ? <DrawerHeader></DrawerHeader> : ""}
         <Divider />
-        <img src="./assets/logo_mark.png" alt="" className="p-4" />
-        <List className={`${open ? '!mt-[4rem]': ''}`}>
+        <center className="border-b-[1px] border-gray-200" >
+        <img src="./assets/logo.png" alt="" className={`p-4 ${open ? 'w-32 h-32' : ''}`} />
+        </center>
+        <List className={`${open ? '!mt-[1rem]': ''}`}>
           <ListItem disablePadding sx={{ display: "block" }}>
             <ListItemButton
               onClick={() => route("/dashboard")}
               className={`  ${
                 location.pathname === "/dashboard" 
-                  ? "!bg-[#004793] !border-l-2 !border-l-white "
-                  : " text-white"
+                  ? "!bg-gradient-to-r from-teal-400 to-green-500 !text-white !border-l-2 !rounded-r-full w-[95%] !border-l-white"
+                  : "text-gray-800"
               }`}
               sx={{
                 minHeight: 48,
@@ -245,52 +249,14 @@ export default function PortalLayout({ children, title }) {
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "center",
-                  color: "white"
                 }}
               >
                 <MdDashboardCustomize 
-                  className='text-white'
+                  className={`${
+                    location.pathname === "/dashboard" ? 'text-white' : ''}`}
                 />
               </ListItemIcon>
-              <ListItemText
-                primary="Dashboard"
-                sx={{ opacity: open ? 1 : 0 }}
-                className='text-white'
-              />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              onClick={() => route("/books")}
-              className={`  ${
-                location.pathname === "/books" ||
-                location.pathname === "/books/add" ||
-                location.pathname === "/books/edit" 
-                  ? "!bg-[#375d7a]"
-                  : " text-white"
-              }`}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <FaBook  
-                  className='text-white'
-                />
-              </ListItemIcon>
-              <ListItemText
-                primary="Expense"
-                sx={{ opacity: open ? 1 : 0 }}
-                className='text-white'
-              />
+              <p className={`!text-[.9rem] !font-[700] ${ open ? '' : 'hidden'}`}  >Dashboard</p>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding sx={{ display: "block" }}>
@@ -300,8 +266,8 @@ export default function PortalLayout({ children, title }) {
                 location.pathname === "/products" ||
                 location.pathname === "/books/add" ||
                 location.pathname === "/books/edit" 
-                  ? "!bg-[#004084]"
-                  : " text-white"
+                  ? "!bg-gradient-to-r from-teal-400 to-green-500 !text-white !border-l-2 !rounded-r-full w-[95%] !border-l-white"
+                  : "!text-gray-800"
               }`}
               sx={{
                 minHeight: 48,
@@ -317,14 +283,11 @@ export default function PortalLayout({ children, title }) {
                 }}
               >
                 <FaBook  
-                  className='text-white'
+                  className={`${
+                    location.pathname === "/products" ? 'text-white' : ''}`}
                 />
               </ListItemIcon>
-              <ListItemText
-                primary="Products"
-                sx={{ opacity: open ? 1 : 0 }}
-                className='text-white'
-              />
+              <p className={`!text-[.9rem] !font-[700] ${ open ? '' : 'hidden'}`} >Products</p>
             </ListItemButton>
           </ListItem>
           <SignOutModal open={openSingout} setOpen={setOpenSignout} signOutFunction={LogOut}/>
@@ -333,8 +296,8 @@ export default function PortalLayout({ children, title }) {
               onClick={() => handleSignOut()}
               className={`  ${
                 location.pathname === "/login"
-                  ? "!bg-[#375d7a]"
-                  : " text-white"
+                  ? "!bg-gradient-to-r from-teal-400 to-green-500 !text-white !border-l-2 !rounded-r-full w-[95%] !border-l-white"
+                  : "text-gray-900"
               }`}
               sx={{
                 minHeight: 48,
@@ -350,14 +313,10 @@ export default function PortalLayout({ children, title }) {
                 }}
               >
                 <RiLogoutCircleRLine 
-                  className='text-white'
+                  className='text-gray'
                 />
               </ListItemIcon>
-              <ListItemText
-                primary="Sign Out"
-                sx={{ opacity: open ? 1 : 0 }}
-                className='text-white'
-              />
+              <p className={`!text-[.9rem] !font-[700] ${ open ? '' : 'hidden'}`} >Sign Out</p>
             </ListItemButton>
           </ListItem>
 
