@@ -154,13 +154,14 @@ const Products = () => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#04375F",
+        main: "#22C55E",
         contrastText: "#EEE",
       },
     },
     typography: {
       fontFamily: ["Poppins"],
-      fontSize: 18,
+      fontSize: 15,
+      fontWeightBold: 800
     },
   });
 
@@ -185,7 +186,7 @@ const Products = () => {
               <div className="mt-5">
                 <Link to={'/product/add'}>
                   {" "}
-                  <button className="bg-teal-500 text-white hover:bg-opacity-80 text-[0.9rem] border-green-500 border-2  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] !font-[600] max-md:font-[400] rounded-full mr-auto ">
+                  <button className="bg-teal-500 text-white hover:bg-[#178941] text-[0.9rem] border-gray-400 border-[1px]   transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] !font-[600] max-md:font-[400] rounded-full mr-auto ">
                     Add New Product
                   </button>
                 </Link>
@@ -194,23 +195,23 @@ const Products = () => {
           ) : (
             <>
               <div className="my-11">
-                <div className="flex flex-col bg-white py-5 mt-5 rounded-xl  shadow-xl  w-full">
+                <div className="flex flex-col bg-white py-7 mt-5 rounded-xl  shadow-xl  w-full">
                   <div className="flex justify-between w-full pb-6 px-5 border-b-2 m-autos">
-                    <div className="border-2 flex bg-teal-500 border-gray-600pl-[1rem] rounded-[8px]  w-[27.8125rem]  max-md:py-[1px] max-md:w-[15rem] max-md:text-[0.7rem] focus:outline-none focus:ring-0 focus:border-gray-900 peer">
-                      <IoIosSearch className="text-[2rem] my-auto ml-2 text-white" />
+                    <div className="flex bg-green-500 rounded-full  w-[27.8125rem] border-gray-400 hover:border-gray-700 border-[1px] max-md:py-[1px] max-md:w-[15rem] max-md:text-[0.7rem]">
+                      <IoIosSearch className="text-[1.8rem] my-auto ml-2 text-white" />
                       <input
                         onChange={(e) => setSearch(e.target.value)}
                         type="search"
                         name=""
                         id=""
                         placeholder="Search..."
-                        className="ml-2 pl-5 w-full bg-white outline-none"
+                        className="ml-2 pl-5 w-[90%] rounded-r-full bg-white outline-none"
                       />
                     </div>
                     <Link to={'/product/add'}>
                       {" "}
-                      <button className="bg-teal-500 text-white hover:bg-opacity-80 text-[0.9rem] border-green-500 border-2  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] !font-[600] max-md:font-[400] rounded-full mr-auto ">
-                        Add New Product
+                      <button className="bg-green-500 text-white hover:bg-[#178941] text-[0.9rem] border-gray-400 border-[1px]  transition-all ease-in-out duration-75 cursor-pointer max-md:text-[.6rem] py-2 px-[1rem] max-md:px-[1rem] max-md:py-[5px] !font-[600] max-md:font-[400] rounded-full mr-auto ">
+                        + Add New Product 
                       </button>
                     </Link>
                   </div>
@@ -218,28 +219,28 @@ const Products = () => {
                   <table className="w-full mt-4 max-md:h-[400px] ">
                     <thead>
                       <tr className="!bg-gray-200 text-black  uppercase text-sm leading-normal w-[100%]">
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem]  text-center">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem]  !font-[700] max-sm:text-[.5rem]  text-center">
                           ID
                         </th>
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] !font-[700]  text-center">
                           Name
                         </th>
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] !font-[700]  text-center">
                           Code
                         </th>
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] !font-[700]  text-center">
                           BRAND
                         </th>
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] !font-[700]  text-center">
                           PRICE
                         </th>
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] !font-[700]  text-center">
                           PRODUCT UNIT
                         </th>
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] !font-[700]  text-center">
                           IN STOCK
                         </th>
-                        <th className="py-[1.5%] w-[10%] lg:text-[.9rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                        <th className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] !font-[700]  text-center">
                           Actions
                         </th>
                       </tr>
@@ -247,31 +248,31 @@ const Products = () => {
                     {paginatedData?.map((value, index) => (
                       <tbody
                         key={index}
-                        className="text-gray-600 text-sm font-light w-[100%]"
+                        className="!text-gray-600 text-sm !font-bold w-[100%]"
                       >
                         <tr
-                          className={`border-b border-gray-300 bg-white ${index % 2 ? "!bg-gray-100" : "bg-white"
+                          className={`border-b border-gray-300 bg-white ${index % 2 ? "!bg-gray-50" : "bg-white"
                             }`}
                         >
-                          <td className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
-                            <span className="font-medium">{index + 1}</span>
+                          <td className="w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] text-center">
+                            <span className="font-bold">{index + 1}</span>
                           </td>
-                          <td className="py-[1.5%] w-[10%]  lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[500] text-center">
+                          <td className="w-[10%]  lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[600] text-center">
                             <span>{value.name}</span>
                           </td>
-                          <td className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[500] text-center">
+                          <td className="w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[600] text-center">
                             <span>{value.code}</span>
                           </td>
-                          <td className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[500] text-center">
+                          <td className="w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[600] text-center">
                             <span>{value.brand}</span>
                           </td>
-                          <td className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[500] text-center">
+                          <td className="w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[600] text-center">
                             <span>{value.price}</span>
                           </td>
-                          <td className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[500] text-center">
+                          <td className="w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[600] text-center">
                             <span>{value.product_unit}</span>
                           </td>
-                          <td className="py-[1.5%] w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[500] text-center">
+                          <td className="w-[10%] lg:text-[.8rem] md:text-[.7rem] max-sm:text-[.5rem] font-[600] text-center">
                             <span>{value.in_stock}</span>
                           </td>
                           {/* <td className="py-[1.5%] w-[10%]  text-center">

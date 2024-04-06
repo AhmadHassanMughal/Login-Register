@@ -157,8 +157,8 @@ export default function PortalLayout({ children, title }) {
             >
               <CiUser className="h-10  w-10 border-2 rounded-full p-2 mt-[6px]" />
               <div>
-                <p className="text-left">Abubakar</p>
-                <p className="text-left">Abubakkar@gmail.com</p>
+                <p className="text-left text-[.9rem] font-[700] ">M. Warren Buffet</p>
+                <p className="text-left text-[.9rem] font-[700] ">WarrenBuffet@gmail.com</p>
               </div>
 
               {isOpen ? (
@@ -267,7 +267,7 @@ export default function PortalLayout({ children, title }) {
                 location.pathname === "/books/add" ||
                 location.pathname === "/books/edit" 
                   ? "!bg-gradient-to-r from-teal-400 to-green-500 !text-white !border-l-2 !rounded-r-full w-[95%] !border-l-white"
-                  : "!text-gray-800"
+                  : "!text-black"
               }`}
               sx={{
                 minHeight: 48,
@@ -284,7 +284,7 @@ export default function PortalLayout({ children, title }) {
               >
                 <FaBook  
                   className={`${
-                    location.pathname === "/products" ? 'text-white' : ''}`}
+                    location.pathname === "/products" ? 'text-white' : '!text-black'}`}
                 />
               </ListItemIcon>
               <p className={`!text-[.9rem] !font-[700] ${ open ? '' : 'hidden'}`} >Products</p>
